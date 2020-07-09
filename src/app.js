@@ -179,7 +179,7 @@ Vue.component('professional', {
     <div style="margin-top: 100px;"></div>
     <div class="card">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item card-img-top" src="http://www.youtube.com/embed/2-8KG8tWYQk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item card-img-top" src="https://www.youtube.com/embed/2-8KG8tWYQk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="card-body">
             <h5 class="card-title">Northeastern Global wall: Downstream 2012</h5>
