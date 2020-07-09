@@ -225,6 +225,30 @@ Vue.component('professional', {
 </div>`
 });
 
+Vue.component('personal', {
+    props: ['data'],
+    template:
+`
+<div>
+    <div class="card">
+        <div style="width: 100%;text-align: center;">
+            <div style="display: inline-block;">
+                <embed width="740" height="500" class="embed-responsive-item" src="https://www.jeremyiscool.com/Bumble-Asteroids/index.html"></embed>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Bumble-Asteroids</h5>
+            <p class="card-text">
+            <ul>
+                <li><a href="https://github.com/jbluepolarbear/Bumble-Asteroids">Asteroids</a> game built in the <a href="https://github.com/jbluepolarbear/Bumble">Bumble</a> game framework I made in JavaScript.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div style="margin-top: 100px;"></div>
+</div>
+`});
+
 Vue.component('contact', {
     props: ['data'],
     template:
