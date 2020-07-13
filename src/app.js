@@ -231,6 +231,22 @@ Vue.component('personal', {
 `
 <div>
     <div class="card">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item card-img-top" src="https://www.youtube.com/embed/7zcp_8j1nzc"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><a href="https://jbluepolarbear.itch.io/not-responsive">Not Responsive</a></h5>
+            <p class="card-text">
+            <ul>
+                <li>A game built in Unity for the <a href="https://itch.io/jam/gmtk-2020">GMTK Game Jame 2020</a>.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div style="margin-top: 100px;"></div>
+    <div class="card">
         <div style="width: 100%;text-align: center;">
             <div style="display: inline-block;">
                 <embed width="740" height="500" class="embed-responsive-item" src="https://www.jeremyiscool.com/Bumble-Asteroids/index.html"></embed>
