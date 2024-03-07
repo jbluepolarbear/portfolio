@@ -38,12 +38,10 @@ Vue.component('home', {
         `
 <div class="card">
     <div class="card-body">
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oh… Hello there! You’ve come to my portfolio, so you must want to
-            know more about me. I am Jeremy Anderson and I am a game developer, multiskilled problem solver, and
-            lots of other things. I am a true generalist software engineer and I am comfortable fitting into any
-            role: gameplay, sdks, engine features, servers, server/client communication, tools, websites, and
-            the
-            list goes on. Check out my resume to see what else I’ve done.
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to my portfolio! I'm Jeremy Anderson, a versatile game 
+        developer and software engineer with a knack for problem-solving. My expertise spans across various domains 
+        including architecture, gameplay, SDKs, engine features, multiplayer, servers, server/client communication, 
+        tools, and websites, to name a few. For a detailed overview of my skills and experiences, feel free to explore my resume.
         </p>
         <div class="float-left" style="padding: 10px;">
             <div class="card">
@@ -53,19 +51,13 @@ Vue.component('home', {
                 </div>
             </div>
         </div>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In March 2020 I joined Rewardify working on casual, reward
-            driven,
-            mobile games. Before that, I was at Backflip Studios where I worked on DragonVale World, 3rd party
-            SDK
-            integration, mentored Junior Developers, and I led the game server development of a cool,
-            unannounced
-            Transformers game until the studio closed in October of 2019. In 2013, I made the big decision to
-            move
-            from Portland, Or to Denver, Co to work at Medical Simulations Corporations building endovascular
-            simulations to train doctors. Previous to that, I worked at a Downstream where I implemented large
-            scale, multi-touch, interactive designs in C++ and OpenGL.
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am always open to a conversation about new opportunities in the
-            game industry, my past projects, or anything you’d like.</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My most recent project was <a href="https://www.hellokittyislandadventure.com/">Hello Kitty Island Adventure</a>, where I played a pivotal 
+        role from its inception to release. I developed class-based RPC targeting on our custom managed RPC system and built core 
+        systems such as Inventory, Conditions, AI Blackboard, and User State Management. I also designed the AI system for NPCs, 
+        backed by an AI Blackboard variable store and a conditional system. Additionally, I implemented various multiplayer gameplay 
+        features and network features.
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm always eager to discuss new opportunities in the game industry, delve into my past 
+        projects, or chat about anything else that piques your interest. Let's connect!</p>
         </p>
     </div>
 </div>`

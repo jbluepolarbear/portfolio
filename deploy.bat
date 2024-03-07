@@ -1,1 +1,1 @@
-scp -r C:\Users\jblue\Documents\Code\portfolio\ jbluepolarbear@jeremyrobertanderson.com:/home/jbluepolarbear/jeremyrobertanderson.com
+scp -r C:\Users\jblue\Documents\Code\repos\portfolio\ jbluepolarbear@jeremyrobertanderson.com:/home/jbluepolarbear/jeremyrobertanderson.com
