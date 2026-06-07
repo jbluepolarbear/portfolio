@@ -1,44 +1,300 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
-    <script type="module" src="src/app.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Anderson — Game Developer & Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='10' width='20' height='14' rx='4' fill='%231c1917' stroke='%23c97d54' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='17' r='2' fill='%23c97d54'/%3E%3Ccircle cx='16' cy='17' r='2' fill='%23c97d54'/%3E%3Ccircle cx='21' cy='17' r='2' fill='%23c97d54'/%3E%3Cpath d='M8 7 Q16 4 24 7' fill='none' stroke='%23dba87a' stroke-width='1' opacity='0.7'/%3E%3Ccircle cx='8' cy='7' r='1' fill='%23dba87a'/%3E%3Ccircle cx='16' cy='4.5' r='1' fill='%23dba87a'/%3E%3Ccircle cx='24' cy='7' r='1' fill='%23dba87a'/%3E%3C/svg%3E">
 </head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Jeremy Anderson</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#featured">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<body class="d-flex flex-column">
-    <div id="app">
-        <div class="flex-grow-1 flex-shrink-0">
-            <navbar></navbar>
-            <div class="container">
-                <main role="main">
-                    <home id="home-page" hidden></home>
-                    <birbs id="birbs-page" hidden></birbs>
-                    <resume id="resume-page" hidden></resume>
-                    <contact id="contact-page" hidden></contact>
-                    <professional id="professional-page" hidden></professional>
-                    <personal id="personal-page" hidden></personal>
-                </main>
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-greeting">Hi, I'm</p>
+            <h1 class="hero-name">Jeremy Anderson</h1>
+            <p class="hero-title">Game Developer & Software Engineer</p>
+            <p class="hero-tagline">Building immersive worlds, multiplayer systems, and the tools to create them.</p>
+            <div class="hero-cta">
+                <a href="#featured" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container text-center">
-                <span class="text-muted">Jeremy Robert Anderson © {{ copywriteYear }}. All Rights
-                    Reserved.</span>
+        <div class="hero-glow"></div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">01</span> About Me</h2>
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image">
+                        <img src="img/mighty.jpg" alt="Jeremy with Mighty the Cockatiel">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p>I'm a game developer and software engineer with over a decade of experience building interactive experiences across VR, mobile, and large-scale installations. From architecting multiplayer systems and game servers to crafting gameplay mechanics and developer tools, I thrive on solving complex problems across the full stack.</p>
+                    <p>Most recently, I've been leading multiplayer engineering for a VR live-service title at <strong>Owlchemy Labs</strong>, and before that I built core systems for <strong>Hello Kitty Island Adventure</strong> from prototype through launch at Sunblink.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Plastic SCM</span>
+                        <span class="skill-tag">Networking</span>
+                        <span class="skill-tag">Multiplayer</span>
+                        <span class="skill-tag">VR</span>
+                        <span class="skill-tag">ECS</span>
+                        <span class="skill-tag">Rider</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Perforce</span>
+                        <span class="skill-tag">Agentic Coding</span>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <section id="featured" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">02</span> Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66b40cf832329659048156c6/3775f174-4b4d-4a6e-beac-2ef86827e1f6/screenshots_Hexas_GroupShot.png" alt="Dimensional Double Shift screenshot" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-name"><a href="https://dimensionaldoubleshift.com/">Dimensional Double Shift</a></h3>
+                            <span class="project-role">Principal Multiplayer Engineer</span>
+                        </div>
+                        <p class="project-company"><a href="https://owlchemylabs.com/">Owlchemy Labs</a> &middot; 2023 &ndash; Present</p>
+                        <p class="project-desc">Owlchemy Labs' first omniversal hand-tracked cooperative multiplayer VR game. Up to 4 players run the Gas N' Grill, an interdimensional diner and garage, exploring dimensions like Hexas, Treeattle, New Joysey, and Sporelando.</p>
+                        <ul class="project-highlights">
+                            <li>Architecting multiplayer networking infrastructure for a cross-platform VR live-service title</li>
+                            <li>Designing and implementing real-time networked gameplay systems for hand-tracked VR interactions</li>
+                            <li>Building robust server infrastructure to support live operations and scalable multiplayer experiences</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media">
+                        <img src="https://static.wixstatic.com/media/b0050c_cd08b5e44a5b41fabe720fd19730bf3d~mv2.jpg" alt="Hello Kitty Island Adventure screenshot" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-name"><a href="https://www.hellokittyislandadventure.com/">Hello Kitty Island Adventure</a></h3>
+                            <span class="project-role">Senior Engineer</span>
+                        </div>
+                        <p class="project-company"><a href="https://www.sunblink.com/">Sunblink</a> &middot; Feb 2021 &ndash; Nov 2023</p>
+                        <p class="project-desc">An open-world life simulation game where players explore, craft, and befriend iconic Sanrio characters. Contributed from prototype through production and launch.</p>
+                        <ul class="project-highlights">
+                            <li>Extended Unity ECS netcode with a managed RPC system using Protobuf and C# classes</li>
+                            <li>Built class-based RPC targeting on the custom managed RPC system</li>
+                            <li>Developed core systems: Inventory, Conditions, AI Blackboard, Save/Restore, User State Management</li>
+                            <li>Designed GOAP AI system for NPCs backed by AI Blackboard and conditional system</li>
+                            <li>Implemented multiplayer gameplay: Fishing, Obstacle courses, Minecarts, Boats, Ziplines</li>
+                            <li>Delivered network features: Start-up/Shutdown, RPCs, optimized serialization, local testing</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">03</span> Trailer</h2>
+            <div class="trailer-card">
+                <div class="trailer-video">
+                    <iframe src="https://www.youtube.com/embed/JCL5ZW-cv_s" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="trailer-info">
+                    <h3>Portfolio Showreel</h3>
+                    <p>A collection of past projects showcasing work across game development, interactive installations, and engineering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">04</span> Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Principal Multiplayer Engineer</h3>
+                            <span class="timeline-date">2023 &ndash; Present</span>
+                        </div>
+                        <p class="timeline-company">Owlchemy Labs</p>
+                        <p>Leading multiplayer engineering for Dimensional Double Shift, a VR live-service title. Architecting networked gameplay systems and infrastructure for cross-platform VR.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Software Engineer</h3>
+                            <span class="timeline-date">Feb 2021 &ndash; Nov 2023</span>
+                        </div>
+                        <p class="timeline-company">Sunblink &mdash; Remote</p>
+                        <p>Core systems and multiplayer engineering for Hello Kitty Island Adventure from prototype through production and launch.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Software Engineer</h3>
+                            <span class="timeline-date">Mar 2020 &ndash; Aug 2020</span>
+                        </div>
+                        <p class="timeline-company">Rewardify &mdash; Remote</p>
+                        <p>Led development of tournament backend service shared with multiple mobile games. Built tools to support development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Software Engineer</h3>
+                            <span class="timeline-date">Feb 2019 &ndash; Dec 2019</span>
+                        </div>
+                        <p class="timeline-company">Backflip Studios &mdash; Boulder, CO</p>
+                        <p>Led development of authoritative game server in Go for an unannounced title. Designed TCP/Protobuf communication layer in C# with async and coroutine patterns.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer</h3>
+                            <span class="timeline-date">Dec 2017 &ndash; Feb 2019</span>
+                        </div>
+                        <p class="timeline-company">Backflip Studios &mdash; Boulder, CO</p>
+                        <p>Tools team. Designed data tooling supporting two unannounced games. Built web services. Mentored junior developers.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer</h3>
+                            <span class="timeline-date">Oct 2015 &ndash; Jun 2017</span>
+                        </div>
+                        <p class="timeline-company">Backflip Studios &mdash; Boulder, CO</p>
+                        <p>Analytics, advertising, IAP, and social solutions for Dragonvale World. Cross-platform framework bridging Java/Obj-C to C++ and Unity C#. Unity Editor extensions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer</h3>
+                            <span class="timeline-date">Sep 2013 &ndash; Oct 2015</span>
+                        </div>
+                        <p class="timeline-company">Medical Simulation Corporation &mdash; Denver, CO</p>
+                        <p>Endovascular simulations on Compass hardware platform. Graphics, physics, haptics, UI, and hardware input. OTA update system and app distribution website.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Interaction Developer</h3>
+                            <span class="timeline-date">Aug 2011 &ndash; Apr 2013</span>
+                        </div>
+                        <p class="timeline-company">Downstream &mdash; Portland, OR</p>
+                        <p>Large-scale interactive installations in C++ and OpenGL. Multi-touch globes, multi-user tables, 24-screen attractions. In-house engine development on openFrameworks and Cinder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">05</span> Personal Projects</h2>
+            <div class="side-projects-grid">
+                <article class="side-project-card">
+                    <div class="side-project-video">
+                        <iframe src="https://www.youtube.com/embed/7zcp_8j1nzc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="side-project-info">
+                        <h3><a href="https://jbluepolarbear.itch.io/not-responsive">Not Responsive</a></h3>
+                        <p>A game built in Unity for the GMTK Game Jam 2020. A puzzle game where timing is everything.</p>
+                        <a href="https://jbluepolarbear.itch.io/not-responsive" class="project-link">Play it on itch.io &rarr;</a>
+                    </div>
+                </article>
+                <article class="side-project-card">
+                    <div class="side-project-info">
+                        <h3><a href="https://github.com/jbluepolarbear/Bumble-Asteroids">Bumble-Asteroids</a></h3>
+                        <p>Asteroids game built in the <a href="https://github.com/jbluepolarbear/Bumble">Bumble</a> game framework, a custom JavaScript game engine.</p>
+                        <a href="https://github.com/jbluepolarbear/Bumble-Asteroids" class="project-link">View on GitHub &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="section-number">06</span> Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:jbluepolarbear@gmail.com">jbluepolarbear@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/jeremy-robert-anderson">linkedin.com/in/jeremy-robert-anderson</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/jbluepolarbear">github.com/jbluepolarbear</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Jeremy Robert Anderson. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
 </body>
-
-<script type="module">
-    import { App } from './src/app.js';
-    const app = new App();
-</script>
-
 </html>
