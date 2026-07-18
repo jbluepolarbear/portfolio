@@ -1,1 +1,0 @@
-scp -r C:\Users\jblue\Documents\Code\repos\portfolio\ jbluepolarbear@jeremyrobertanderson.com:/home/jbluepolarbear/jeremyrobertanderson.com
