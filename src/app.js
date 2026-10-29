@@ -1,87 +1,101 @@
-function init() {
-    const nav = document.getElementById('nav');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    const navLinkEls = navLinks.querySelectorAll('a');
-    const sections = document.querySelectorAll('section[id]');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const header = document.querySelector('.site-header');
+const mobileLayout = window.matchMedia('(max-width: 600px)');
 
-    let lastScrollY = 0;
-
-    function onScroll() {
-        const scrollY = window.scrollY;
-        if (scrollY > 60) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-        lastScrollY = scrollY;
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    function toggleNav(active) {
-        navToggle.classList.toggle('active', active);
-        navLinks.classList.toggle('active', active);
-        document.body.style.overflow = active ? 'hidden' : '';
-    }
-
-    navToggle.addEventListener('click', () => {
-        toggleNav(!navLinks.classList.contains('active'));
-    });
-
-    navLinkEls.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                toggleNav(false);
-            }
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('active') && !nav.contains(e.target)) {
-            toggleNav(false);
-        }
-    });
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinkEls.forEach(link => {
-                    const href = link.getAttribute('href');
-                    link.classList.toggle('active', href === `#${id}`);
-                });
-            }
-        });
-    }, {
-        rootMargin: '-40% 0px -55% 0px'
-    });
-
-    sections.forEach(section => sectionObserver.observe(section));
-
-    const fadeEls = document.querySelectorAll('.section');
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                fadeObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    fadeEls.forEach(el => {
-        el.classList.add('fade-in');
-        fadeObserver.observe(el);
-    });
-
-    const year = new Date().getFullYear();
-    const footerYear = document.querySelector('.footer p');
-    if (footerYear) {
-        footerYear.textContent = `\u00A9 ${year} Jeremy Robert Anderson. All rights reserved.`;
-    }
+function setMenuOpen(open, returnFocus = false) {
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    navLinks.classList.toggle('is-open', open);
+    if (returnFocus) navToggle.focus();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+navToggle.addEventListener('click', () => {
+    setMenuOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+});
+
+navLinks.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenuOpen(false);
+});
+
+document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) setMenuOpen(false);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        setMenuOpen(false, true);
+    }
+});
+
+header.addEventListener('focusout', (event) => {
+    if (!header.contains(event.relatedTarget)) setMenuOpen(false);
+});
+
+function updateNavigation() {
+    setMenuOpen(false);
+    navToggle.hidden = !mobileLayout.matches;
+}
+
+mobileLayout.addEventListener('change', updateNavigation);
+updateNavigation();
+document.documentElement.classList.add('js');
+
+// All content stays visible if JavaScript or IntersectionObserver is unavailable.
+if ('IntersectionObserver' in window) {
+    const links = [...navLinks.querySelectorAll('a')];
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            for (const link of links) {
+                if (link.hash === `#${entry.target.id}`) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            }
+        }
+    }, { rootMargin: '-15% 0px -65% 0px' });
+    document.querySelectorAll('main > section[id]').forEach((section) => observer.observe(section));
+}
+
+const videoDialog = document.getElementById('videoDialog');
+const videoFrame = document.getElementById('videoFrame');
+let videoTrigger;
+
+if (typeof videoDialog.showModal === 'function') {
+    document.querySelectorAll('a[data-video]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            videoTrigger = link;
+            const iframe = document.createElement('iframe');
+            iframe.title = link.dataset.videoTitle;
+            iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(link.dataset.video)}?autoplay=1&rel=0`;
+            iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+            document.getElementById('videoTitle').textContent = link.dataset.videoTitle;
+            document.getElementById('videoFallback').href = link.href;
+            videoFrame.replaceChildren(iframe);
+            setMenuOpen(false);
+            videoDialog.showModal();
+            document.body.classList.add('video-open');
+        });
+    });
+
+    videoDialog.querySelector('.video-close').addEventListener('click', () => videoDialog.close());
+    videoDialog.addEventListener('click', (event) => {
+        if (event.target !== videoDialog) return;
+        const bounds = videoDialog.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+            videoDialog.close();
+        }
+    });
+    videoDialog.addEventListener('close', () => {
+        videoFrame.replaceChildren();
+        document.body.classList.remove('video-open');
+        videoTrigger?.focus({ preventScroll: true });
+    });
+}
+
+document.getElementById('footerYear').textContent = new Date().getFullYear();
